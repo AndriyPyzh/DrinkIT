@@ -166,24 +166,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604040445246_InitialModel.cs" />
-    <Compile Include="Migrations\201604040445246_InitialModel.Designer.cs">
-      <DependentUpon>201604040445246_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\202103250022317_BasicModels.cs" />
+    <Compile Include="Migrations\202103250022317_BasicModels.Designer.cs">
+      <DependentUpon>202103250022317_BasicModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103250023263_PopulateGenders.cs" />
+    <Compile Include="Migrations\202103250023263_PopulateGenders.Designer.cs">
+      <DependentUpon>202103250023263_PopulateGenders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103250024010_PopulateBeverages.cs" />
+    <Compile Include="Migrations\202103250024010_PopulateBeverages.Designer.cs">
+      <DependentUpon>202103250024010_PopulateBeverages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103250025426_PopulateAchievements.cs" />
+    <Compile Include="Migrations\202103250025426_PopulateAchievements.Designer.cs">
+      <DependentUpon>202103250025426_PopulateAchievements.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountAchievements.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Achievement.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Beverage.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DrunkDrinks.cs" />
     <Compile Include="Models\Gender.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserAchievements.cs" />
-    <Compile Include="Models\UserData.cs" />
-    <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
@@ -262,8 +271,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604040445246_InitialModel.resx">
-      <DependentUpon>201604040445246_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103250022317_BasicModels.resx">
+      <DependentUpon>202103250022317_BasicModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103250023263_PopulateGenders.resx">
+      <DependentUpon>202103250023263_PopulateGenders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103250024010_PopulateBeverages.resx">
+      <DependentUpon>202103250024010_PopulateBeverages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103250025426_PopulateAchievements.resx">
+      <DependentUpon>202103250025426_PopulateAchievements.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
