@@ -25,7 +25,9 @@ namespace DrinkIt
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/style.css",
+                      "~/Content/bootsrap_pages.css"));
         }
     }
 }

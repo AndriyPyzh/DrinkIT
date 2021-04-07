@@ -1,0 +1,171 @@
+.form{
+position: absolute;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%);
+text-align: center;
+}
+
+.form h3{
+margin: 15px;
+padding: 0;
+text-align: center;
+font-size: 30px;
+}
+
+.form h5{
+padding: 0;
+text-align: center;
+font-size: 14px;
+}
+
+.label{
+
+  font-size: 25;
+  text-align: center;
+}
+
+.buttonAdd{
+  margin-top: 30px;
+  border-radius: 20px;
+  width: 50%;
+  height: 50px;
+  font-size: 17;
+}
+
+.container.elem {
+  font-size: 0;
+}
+
+.seconddiv {
+  width: 50%;
+  vertical-align: top;
+  display: inline-block;
+  height: auto;
+  text-align: center;
+}
+.firstdiv {
+  vertical-align: top;
+  display: inline-block;
+  width: 50%;
+  height: auto;
+  text-align: center;
+}
+
+.mar{
+  margin-right: 40px;
+  font-size: 20;
+}
+
+.container.block {
+  font-size: 0;
+}
+
+.firstblock {
+  vertical-align:middle;
+  display: inline-block;
+  width: 30%;
+  height: auto;
+  text-align: left;
+  margin-left: 10px;
+  position:absolute;
+}
+
+.secondblock {
+  width: 50%;
+  vertical-align: top;
+  display: inline-block;
+  height: auto;
+  text-align: right;
+}
+
+.block{
+  margin-top: 20px;
+}
+
+.input-form{
+text-align: center;
+}
+
+.input-form-button input{
+padding: 10px;
+width: 100%;
+font-size: 20px;
+background: none;
+outline: none;
+border: 1px solid #fff;
+box-sizing: border-box;
+}
+
+.input-form input{
+width: 100%;
+margin: 20px 0 20px 0;
+position: relative;
+background-color: transparent;
+color:black;
+outline-style: none;
+border-top: none;
+border-left: none;
+border-right: none;
+border-bottom: solid black 1px;
+padding: 3px 10px;
+}
+
+.input-form input[type="text"]:focus, .input-form input[type="password"]:focus {
+border: 1px solid none;
+
+}
+
+.input-form-button input[type="submit"]
+{
+margin-top: 20px;
+
+font-weight: bold;
+border:steelblue;
+background: #50D0DE;
+transition: .3s;
+border-radius: 15px;
+}
+
+.input-form-button input[type="submit"]:hover{
+background: #41BECC;
+}
+
+.form a{
+color: #4442db;
+text-decoration: none;
+}
+
+.form a:hover{
+color: #0fc3f5;
+}
+
+.form-check{
+width: 39%;
+text-align: left;
+}
+
+.form-forgot{
+width: 100%;
+text-align: right;
+margin-top: -24px;
+}
+
+.box-set {
+  width: 100%;
+  float:left;
+  margin-top: 50px;
+}
+
+.box {
+  float:left;
+  margin: 1.858736059%;
+  width: 20%;
+  height: 15%;
+
+}
+
+.box:hover{
+  border: rgba(4, 0, 255, 0.329) 1px solid;
+  border-radius: 100px;
+}

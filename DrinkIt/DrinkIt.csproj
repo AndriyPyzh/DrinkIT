@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -160,6 +162,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\DrinkController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
@@ -201,6 +204,22 @@
     <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap_pages.css" />
+    <Content Include="Content\images\Beverages\beer.png" />
+    <Content Include="Content\images\Beverages\cocktail.png" />
+    <Content Include="Content\images\Beverages\coffee.png" />
+    <Content Include="Content\images\Beverages\energy_drink.png" />
+    <Content Include="Content\images\Beverages\juice.png" />
+    <Content Include="Content\images\Beverages\milk.png" />
+    <Content Include="Content\images\Beverages\soda.png" />
+    <Content Include="Content\images\Beverages\tea.png" />
+    <Content Include="Content\images\Beverages\water.png" />
+    <Content Include="Content\images\Beverages\wine.png" />
+    <Content Include="Content\images\check-mark2.png" />
+    <Content Include="Content\images\logoDrinkIT.png" />
+    <Content Include="Content\images\waterdrops.png" />
+    <Content Include="Content\images\waterdrops2.png" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -219,6 +238,11 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Pages\auth-page.html" />
+    <Content Include="Views\Pages\home-page.html" />
+    <Content Include="Views\Pages\login-page.html" />
+    <Content Include="Views\Pages\menu-page.html" />
+    <Content Include="Views\Pages\profile-page.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

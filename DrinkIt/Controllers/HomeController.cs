@@ -8,9 +8,10 @@ namespace DrinkIt.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
+        public ActionResult Index() 
+        { 
+            var staticPageToRender = new FilePathResult("Views/Pages/home-page.html", "text/html"); 
+            return staticPageToRender;
         }
 
         public ActionResult About()
