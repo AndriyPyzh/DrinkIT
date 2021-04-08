@@ -1,31 +1,60 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<div class="container row">
+    <div class="col text-center">
+        <div class="row">
+            <div class="col" style=" font-size: 30px">Today</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col" style="font-size: 20px">(your weight*30)ml</div>
+                    <div class="w-100"></div>
+                    <div class="col" style="font-size: 14px">Intake goal</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col" style="font-size: 20px">500 ml</div>
+                    <div class="w-100"></div>
+                    <div class="col" style="font-size: 14px">Already drunk</div>
+                </div>
+            </div>
+        </div>
 
-<div class="jumbotron">
-    <h1>DrinkIt</h1>
-    <p class="lead">DrinkIt reminds you to drink enough water. Proper hydration keeps your skin healthy and helps you lose weight.</p>
-    <p><a href="http://127.0.0.1:5000/Account/Register" class="btn btn-primary btn-lg">Register &raquo;</a></p>
+        <div>
+            <img class="p-lg-5-5" src="../../Content/images/waterdrops2.png" width="60%" height="55%">
+        </div>
+        <div>
+            <button type="button" class=" btn-primary buttonAdd">Add drink</button>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row text-center">
+            <div class="col" style=" font-size: 30px">History</div>
+        </div>
+        <div class="row pt-3">
+            <div class="col d-flex justify-content-end">
+                <img src="../../Content/images/check-mark.svg" alt="done" width="64px" height="64px">
+            </div>
+            <div class="col-3 w-50 row">
+                <div class="col text-right" style="font-size: 25px">water</div>
+                <div class="w-100"></div>
+                <div class="col" style="font-size: 14px">300ml</div>
+            </div>
+            <div class="col-3 mt-2">12:15</div>
+        </div>
+        <div class="row pt-3">
+            <div class="col d-flex justify-content-end">
+                <img src="../../Content/images/check-mark.svg" alt="done" width="64px" height="64px">
+            </div>
+            <div class="col-3 w-50 row">
+                <div class="col text-right" style="font-size: 25px">milk</div>
+                <div class="w-100"></div>
+                <div class="col" style="font-size: 14px">200ml</div>
+            </div>
+            <div class="col-3 mt-2">11:15</div>
+        </div>
+    </div>
 </div>
-
-@* <div class="row"> *@
-@*     <div class="col-md-4"> *@
-@*         <h2>Getting started</h2> *@
-@*         <p> *@
-@*             ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that *@
-@*             enables a clean separation of concerns and gives you full control over markup *@
-@*             for enjoyable, agile development. *@
-@*         </p> *@
-@*         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p> *@
-@*     </div> *@
-@*     <div class="col-md-4"> *@
-@*         <h2>Get more libraries</h2> *@
-@*         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p> *@
-@*         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p> *@
-@*     </div> *@
-@*     <div class="col-md-4"> *@
-@*         <h2>Web Hosting</h2> *@
-@*         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p> *@
-@*         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p> *@
-@*     </div> *@
-@* </div> *@
