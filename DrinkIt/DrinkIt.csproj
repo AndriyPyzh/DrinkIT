@@ -284,6 +284,7 @@
     <None Include="Views\Customers\Details.cshtml" />
     <None Include="Views\Customers\Index.cshtml" />
     <None Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
