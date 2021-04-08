@@ -5,17 +5,17 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right list-group list-group-horizontal list-unstyled d-flex align-items-center mt-lg-2">
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink( User.Identity.GetUserName().Substring(0,User.Identity.GetUserName().IndexOf("@")), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class=""})
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <li><a class="btn btn-primary mx-lg-4" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }
 }
 else
 {
-    <ul class="list-group list-group-horizontal list-unstyled">
+    <ul class="list-group list-group-horizontal list-unstyled mt-lg-2">
         <li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class="btn btn-outline-primary me-3" })</li>
         <li>@Html.ActionLink("Sign-up", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class="btn btn-primary" })</li>
     </ul>
