@@ -1,5 +1,5 @@
 ﻿@using DrinkIt.Models
-@model IEnumerable<DrinkIt.Models.DrunkDrinks>
+@model DrinkIt.ViewModels.HomeViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -11,14 +11,14 @@
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <div class="col" style="font-size: 20px">(your weight*30)ml</div>
+                    <div class="col" style="font-size: 20px">@Model.IntakeGoal ml</div>
                     <div class="w-100"></div>
                     <div class="col" style="font-size: 14px">Intake goal</div>
                 </div>
             </div>
             <div class="col">
                 <div class="row">
-                    <div class="col" style="font-size: 20px">500 ml</div>
+                    <div class="col" style="font-size: 20px">@Model.AlreadyDrunk ml</div>
                     <div class="w-100"></div>
                     <div class="col" style="font-size: 14px">Already drunk</div>
                 </div>
@@ -36,7 +36,7 @@
         <div class="row text-center">
             <div class="col" style=" font-size: 30px">History</div>
         </div>
-        @foreach (DrunkDrinks drink in @Model)
+        @foreach (DrunkDrinks drink in @Model.Drinks)
         {
             <div class="row pt-3">
                 <div class="col d-flex justify-content-end">

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using DrinkIt.Models;
+using DrinkIt.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace DrinkIt.Controllers
@@ -25,14 +26,24 @@ namespace DrinkIt.Controllers
         public ActionResult Index()
         {
             String userId = User.Identity.GetUserId();
-            List<DrunkDrinks> drinks = _context
+            Account account = _context
                 .Users
                 .Include(u => u.Account.DrunkDrinks.Select(d => d.Beverage))
                 .Single(c => c.Id == userId)
-                .Account
-                .DrunkDrinks.ToList();
-            
-            return View(drinks);
+                .Account;
+            List<DrunkDrinks> drinks = account
+                .DrunkDrinks
+                .OrderByDescending(d=>d.Time)
+                .ToList();
+            int intakeGoal = Convert.ToInt32(account.Goal);
+            int alreadyDrunked = drinks.Sum(d => d.Volume);
+
+            return View(new HomeViewModel
+            {
+                Drinks = drinks,
+                IntakeGoal = intakeGoal,
+                AlreadyDrunk = alreadyDrunked
+            });
         }
     }
 }
