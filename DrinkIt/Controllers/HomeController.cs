@@ -26,16 +26,21 @@ namespace DrinkIt.Controllers
         public ActionResult Index()
         {
             String userId = User.Identity.GetUserId();
+            
             Account account = _context
                 .Users
                 .Include(u => u.Account.DrunkDrinks.Select(d => d.Beverage))
                 .Single(c => c.Id == userId)
                 .Account;
+            
             List<DrunkDrinks> drinks = account
                 .DrunkDrinks
-                .OrderByDescending(d=>d.Time)
+                .Where(d => d.Time.Date == DateTime.Today)
+                .OrderByDescending(d => d.Time)
                 .ToList();
+            
             int intakeGoal = Convert.ToInt32(account.Goal);
+            
             int alreadyDrunked = drinks.Sum(d => d.Volume);
 
             return View(new HomeViewModel

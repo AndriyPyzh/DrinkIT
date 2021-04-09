@@ -34,43 +34,28 @@
     </div>
     <div class="col">
         <div class="row text-center">
-            <div class="col" style=" font-size: 30px">History</div>
+            <div class="col" style="font-size: 30px">History</div>
         </div>
-        @foreach (DrunkDrinks drink in @Model.Drinks)
+        @if (Model.Drinks.Count == 0)
         {
-            <div class="row pt-3">
-                <div class="col d-flex justify-content-end">
-                    <img src="../../Content/images/check-mark.svg" alt="done" width="64px" height="64px">
-                </div>
-                <div class="col-3 w-50 row">
-                    <div class="col text-right" style="font-size: 25px">@drink.Beverage.Name</div>
-                    <div class="w-100"></div>
-                    <div class="col" style="font-size: 14px">@drink.Volume ml</div>
-                </div>
-                <div class="col-3 mt-2">@drink.Time.ToString("HH:mm")</div>
-            </div>
+            <div class="text-center text-secondary mt-4" style="font-size: 20px">Time to drink something!</div>
         }
-        @* <div class="row pt-3"> *@
-        @*     <div class="col d-flex justify-content-end"> *@
-        @*         <img src="../../Content/images/check-mark.svg" alt="done" width="64px" height="64px"> *@
-        @*     </div> *@
-        @*     <div class="col-3 w-50 row"> *@
-        @*         <div class="col text-right" style="font-size: 25px">water</div> *@
-        @*         <div class="w-100"></div> *@
-        @*         <div class="col" style="font-size: 14px">300ml</div> *@
-        @*     </div> *@
-        @*     <div class="col-3 mt-2">12:15</div> *@
-        @* </div> *@
-        @* <div class="row pt-3"> *@
-        @*     <div class="col d-flex justify-content-end"> *@
-        @*         <img src="../../Content/images/check-mark.svg" alt="done" width="64px" height="64px"> *@
-        @*     </div> *@
-        @*     <div class="col-3 w-50 row"> *@
-        @*         <div class="col text-right" style="font-size: 25px">milk</div> *@
-        @*         <div class="w-100"></div> *@
-        @*         <div class="col" style="font-size: 14px">200ml</div> *@
-        @*     </div> *@
-        @*     <div class="col-3 mt-2">11:15</div> *@
-        @* </div> *@
+        else
+        {
+            foreach (DrunkDrinks drink in Model.Drinks)
+            {
+                <div class="row pt-3">
+                    <div class="col d-flex justify-content-end">
+                        <img src="../../Content/images/check-mark.svg" alt="done" width="64px" height="64px">
+                    </div>
+                    <div class="col-3 w-50 row">
+                        <div class="col text-right" style="font-size: 25px">@drink.Beverage.Name</div>
+                        <div class="w-100"></div>
+                        <div class="col" style="font-size: 14px">@drink.Volume ml</div>
+                    </div>
+                    <div class="col-3 mt-2">@drink.Time.ToString("HH:mm")</div>
+                </div>
+            }
+        }
     </div>
 </div>

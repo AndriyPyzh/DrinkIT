@@ -10,8 +10,7 @@ namespace DrinkIt.Controllers
     {
         public ActionResult Index()
         {
-            var staticPageToRender = new FilePathResult("Views/Pages/menu-page.html", "text/html");
-            return staticPageToRender;
+            return View();
         }
     }
 }
