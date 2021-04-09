@@ -1,30 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
+using System.Collections.Generic;
 using System.Web.Mvc;
+using DrinkIt.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DrinkIt.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index() 
+        private ApplicationDbContext _context;
+
+        public HomeController()
         {
-            return View();
+            _context = new ApplicationDbContext();
         }
 
-        public ActionResult About()
+        protected override void Dispose(bool disposing)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            _context.Dispose();
         }
 
-        public ActionResult Contact()
+        public ActionResult Index()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            String userId = User.Identity.GetUserId();
+            List<DrunkDrinks> drinks = _context
+                .Users
+                .Include(u => u.Account.DrunkDrinks.Select(d => d.Beverage))
+                .Single(c => c.Id == userId)
+                .Account
+                .DrunkDrinks.ToList();
+            
+            return View(drinks);
         }
     }
 }
