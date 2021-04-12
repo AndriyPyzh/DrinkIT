@@ -2,7 +2,7 @@
 
 namespace DrinkIt.Models
 {
-    public class DrunkDrinks
+    public class DrunkDrink
     {
         public int Id { get; set; }
 

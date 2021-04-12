@@ -33,7 +33,7 @@ namespace DrinkIt.Controllers
                 .Single(c => c.Id == userId)
                 .Account;
             
-            List<DrunkDrinks> drinks = account
+            List<DrunkDrink> drinks = account
                 .DrunkDrinks
                 .Where(d => d.Time.Date == DateTime.Today)
                 .OrderByDescending(d => d.Time)

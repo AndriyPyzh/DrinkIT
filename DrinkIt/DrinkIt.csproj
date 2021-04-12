@@ -161,7 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DrinkController.cs" />
+    <Compile Include="Controllers\BeverageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -185,19 +185,28 @@
     <Compile Include="Migrations\202103250025426_PopulateAchievements.Designer.cs">
       <DependentUpon>202103250025426_PopulateAchievements.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104111818043_AddBeverageImage.cs" />
+    <Compile Include="Migrations\202104111818043_AddBeverageImage.Designer.cs">
+      <DependentUpon>202104111818043_AddBeverageImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104111819572_PopulateBeverageImages.cs" />
+    <Compile Include="Migrations\202104111819572_PopulateBeverageImages.Designer.cs">
+      <DependentUpon>202104111819572_PopulateBeverageImages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountAchievements.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Achievement.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Beverage.cs" />
-    <Compile Include="Models\DrunkDrinks.cs" />
+    <Compile Include="Models\DrunkDrink.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddDrinkViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
@@ -239,8 +248,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\waves.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Drink\Index.cshtml" />
+    <Content Include="Views\Beverage\Index.cshtml" />
     <Content Include="Views\Pages\auth-page.html" />
     <Content Include="Views\Pages\home-page.html" />
     <Content Include="Views\Pages\login-page.html" />
@@ -304,6 +314,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103250025426_PopulateAchievements.resx">
       <DependentUpon>202103250025426_PopulateAchievements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104111818043_AddBeverageImage.resx">
+      <DependentUpon>202104111818043_AddBeverageImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104111819572_PopulateBeverageImages.resx">
+      <DependentUpon>202104111819572_PopulateBeverageImages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
