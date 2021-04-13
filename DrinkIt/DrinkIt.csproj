@@ -255,11 +255,6 @@
     <Content Include="Scripts\waves.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Beverage\Index.cshtml" />
-    <Content Include="Views\Pages\auth-page.html" />
-    <Content Include="Views\Pages\home-page.html" />
-    <Content Include="Views\Pages\login-page.html" />
-    <Content Include="Views\Pages\menu-page.html" />
-    <Content Include="Views\Pages\profile-page.html" />
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
