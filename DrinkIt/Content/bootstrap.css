@@ -153,6 +153,18 @@ fieldset {
   border: 1px solid #c0c0c0;
 }
 
+.rivno {
+    display: block;
+    width: 100px;
+    margin: auto;
+}
+
+.inp {
+    display: block;
+    float: left;
+    clear: both;
+}
+
 legend {
   padding: 0;
   border: 0;

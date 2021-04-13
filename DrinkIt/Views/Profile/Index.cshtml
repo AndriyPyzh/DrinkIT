@@ -1,0 +1,56 @@
+﻿@using DrinkIt.Models
+@model Account
+@{
+    ViewBag.Title = "Profile";
+}
+<body>
+    <div class="d-flex justify-content-center">
+        <div style="width: 300px">
+
+            @using (Html.BeginForm("Profile", "Profile", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form">
+
+                    <h3>Personal information</h3>
+                    @Html.AntiForgeryToken()
+                    @Html.LabelFor(m => m.Age)
+                    <div class="input-form">
+                        @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.Weight)
+                    <div class="input-form">
+                        @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Weight, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.Goal)
+                    <div class="input-form">
+                        @Html.TextBoxFor(m => m.Goal, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Weight, "", new { @class = "text-danger" })
+                    </div>
+
+            
+                     <p>Please select your gender:</p>
+                    
+                                    <div colspan="3" align="center">
+                                        <div class="rivno">
+                                            <label>
+                                                @Html.RadioButtonFor(i => i.Gender, "Male")   Male
+                                                @Html.RadioButtonFor(i => i.Gender, "Female") Female
+                                                @Html.RadioButtonFor(i => i.Gender, "Other")  Other
+                                            </label>
+                                        </div>
+                                     </div>
+
+
+                    <div class="input-form-button">
+                        <input type="submit" value="Submit" onclick="location.href = 'http://localhost:49333/';">
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</body>

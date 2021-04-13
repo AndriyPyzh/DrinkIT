@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
@@ -75,6 +76,29 @@ namespace DrinkIt.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class ProfileViewModel
+    {
+        [Required]
+        [Display(Name = "Age")]
+        public int Age { get; set; }
+        [Required]
+        [Display(Name = "Weight")]
+        public int Weight { get; set; }
+        [Required]
+        [Display(Name = "Gender")]
+        public string Gender { get; set; }
+        [Required]
+        [Display(Name = "Goal")]
+        public int Goal { get; set; }
+
+        [Required]
+        [Display(Name = "WakeUpTime")]
+        public TimeSpan WakeUpTime = new TimeSpan ( 0, 0, 8, 0 );
+
+        [Required]
+        [Display(Name = "SleepTime")]
+        public TimeSpan SleepTime = new TimeSpan(0, 0, 22, 0);
+    }
     public class ResetPasswordViewModel
     {
         [Required]

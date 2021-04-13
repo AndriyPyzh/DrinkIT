@@ -185,6 +185,10 @@
     <Compile Include="Migrations\202103250025426_PopulateAchievements.Designer.cs">
       <DependentUpon>202103250025426_PopulateAchievements.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104131443549_DeletedFieldsFromAccount.cs" />
+    <Compile Include="Migrations\202104131443549_DeletedFieldsFromAccount.Designer.cs">
+      <DependentUpon>202104131443549_DeletedFieldsFromAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountAchievements.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -281,6 +285,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103250025426_PopulateAchievements.resx">
       <DependentUpon>202103250025426_PopulateAchievements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104131443549_DeletedFieldsFromAccount.resx">
+      <DependentUpon>202104131443549_DeletedFieldsFromAccount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
