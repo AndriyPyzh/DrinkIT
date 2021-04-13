@@ -23,7 +23,7 @@ namespace DrinkIt.Controllers
             _context.Dispose();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
             String userId = User.Identity.GetUserId();
             
@@ -45,6 +45,8 @@ namespace DrinkIt.Controllers
 
             return View(new HomeViewModel
             {
+                BlogPerPage = 6,
+                CurrentPage = page,
                 Drinks = drinks,
                 IntakeGoal = intakeGoal,
                 AlreadyDrunk = alreadyDrunked
