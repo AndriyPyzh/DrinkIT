@@ -11,11 +11,10 @@
 </head>
 <body>
     @Html.Partial("_NavBar")
-    <div class="container body-content">
+    <div class="container">
         @RenderBody()
-        <hr />
-        <footer>
-           <p>&copy; @DateTime.Now.Year - DrinkIt</p>
+        <footer class="fixed-bottom py-2 bg-white">
+           <p class="m-2 text-center">&copy; @DateTime.Now.Year - DrinkIT</p>
         </footer>
     </div>
 
