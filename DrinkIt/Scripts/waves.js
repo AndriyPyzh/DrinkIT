@@ -4,13 +4,15 @@ var maxPercent = cnt.innerText;
 var percent = 0;
 var interval;
 interval = setInterval(function () {
-    if (maxPercent == 0){
+    if (maxPercent == 0) {
         clearInterval(interval)
         percent--;
     }
     percent++;
     cnt.innerHTML = percent;
-    water.style.transform = 'translate(0' + ',' + (100 - percent) + '%)';
+    if (Number(percent) < 100) {
+        water.style.transform = 'translate(0' + ',' + (100 - percent) + '%)';
+    }
     if (percent == maxPercent) {
         clearInterval(interval);
     }

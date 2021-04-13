@@ -1,0 +1,52 @@
+﻿@using DrinkIt.Models
+@model Account
+@{
+    ViewBag.Title = "Profile";
+}
+<div class="d-flex justify-content-center">
+    <div style="width: 300px">
+
+        <div class="text-center mb-4">
+            <h3 class="mt-3">Personal information</h3>
+        </div>
+
+        @using (Html.BeginForm("Profile", "Profile", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+        {
+            @Html.AntiForgeryToken()
+            @Html.LabelFor(m => m.Age)
+            <div class="input-form">
+                @Html.TextBoxFor(m => m.Age, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Age, "", new {@class = "text-danger"})
+            </div>
+
+            @Html.LabelFor(m => m.Weight)
+            <div class="input-form">
+                @Html.TextBoxFor(m => m.Weight, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Weight, "", new {@class = "text-danger"})
+            </div>
+
+            @Html.LabelFor(m => m.Goal)
+            <div class="input-form">
+                @Html.TextBoxFor(m => m.Goal, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Weight, "", new {@class = "text-danger"})
+            </div>
+
+            <p class="text-center mt-2">Please select your gender:</p>
+
+            <div class="container box-set text-center mt-0 mb-2">
+                <input type="radio" class="btn-check" name="Gender" id="option1" value="Male">
+                <label class="btn btn-outline-primary" for="option1">Male</label>
+
+                <input type="radio" class="btn-check" name="Gender" id="option2" value="Female">
+                <label class="btn btn-outline-primary" for="option2">Female</label>
+
+                <input type="radio" class="btn-check" name="Gender" id="option3" value="Other">
+                <label class="btn btn-outline-primary" for="option3">Other</label>
+            </div>
+            
+            <div class="input-form-button mt-2">
+                <input type="submit" class="btn-primary buttonAdd" value="Submit">
+            </div>
+        }
+    </div>
+</div>

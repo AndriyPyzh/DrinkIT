@@ -9,6 +9,7 @@ namespace DrinkIt.Models
         public DbSet<DrunkDrink> DrunkDrinks { get; set; }
         public DbSet<Beverage> Beverages { get; set; }
         public DbSet<Achievement> Achievements { get; set; }
+        public DbSet<Gender> Genders { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", false)
