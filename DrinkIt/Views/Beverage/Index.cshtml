@@ -1,0 +1,55 @@
+@using DrinkIt.Models
+@model DrinkIt.ViewModels.AddDrinkViewModel
+@{
+    ViewBag.Title = "Menu Page";
+}
+
+<div class="container text-center">
+    <h3 class="mb-2">Menu</h3>
+    @using (Html.BeginForm("AddDrunkDrink", "Beverage", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+    {
+        for (int i = 0, x = 0; i < Model.Beverages.Count; x += 4)
+        {
+            const int inRow = 4;
+            <div class="row px-5 d-flex justify-content-center mb-3">
+                @for (int j = 0; j < inRow && i < Model.Beverages.Count; j++, i++)
+                {
+                    Beverage beverage = Model.Beverages[x + j];
+                    <div class="w-auto">
+                        <label class="w-auto drink-box">
+                            @Html.RadioButtonFor(m => m.Beverage, beverage.Name, new {@checked = true})
+                            <div style="height: 115px; width: 216px; font-size: 17px">
+                                <p>@beverage.Name</p>
+                                <img src="../../Content/images/Beverages/@beverage.Image" width="60px" height="60px">
+                            </div>
+                        </label>
+                    </div>
+                }
+            </div>
+        }
+
+        <div class="container box-set">
+            <input type="radio" class="btn-check" name="Volume" id="option1" value="50ml">
+            <label class="btn btn-outline-primary" for="option1">50ml</label>
+
+            <input type="radio" class="btn-check" name="Volume" id="option2" value="100ml">
+            <label class="btn btn-outline-primary" for="option2">100ml</label>
+
+            <input type="radio" class="btn-check" name="Volume" id="option3" value="150ml">
+            <label class="btn btn-outline-primary" for="option3">150ml</label>
+
+            <input type="radio" class="btn-check" name="Volume" id="option4" value="200ml" checked>
+            <label class="btn btn-outline-primary" for="option4">200ml</label>
+
+            <input type="radio" class="btn-check" name="Volume" id="option5" value="250ml">
+            <label class="btn btn-outline-primary" for="option5">250ml</label>
+
+            <input type="radio" class="btn-check" name="Volume" id="option6" value="300ml">
+            <label class="btn btn-outline-primary" for="option6">300ml</label>
+        </div>
+
+        <div class="input-form-button">
+            <input name="add-drink" type="submit" class="btn btn-primary" style="width: 15%; font-size: 20px" value="Add">
+        </div>
+    }
+</div>

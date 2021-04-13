@@ -25,7 +25,7 @@ namespace DrinkIt.Models
         public Gender Gender { get; set; }
         
         
-        public IList<DrunkDrinks> DrunkDrinks { get; set; }
+        public IList<DrunkDrink> DrunkDrinks { get; set; }
 
         public IList<AccountAchievements> Achievements { get; set; }
     }

@@ -5,7 +5,7 @@ namespace DrinkIt.ViewModels
 {
     public class HomeViewModel
     {
-        public List<DrunkDrinks> Drinks { get; set; }
+        public List<DrunkDrink> Drinks { get; set; }
         public int IntakeGoal { get; set; }
         public int AlreadyDrunk { get; set; }
     }
