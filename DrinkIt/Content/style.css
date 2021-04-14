@@ -164,6 +164,7 @@ margin-top: -24px;
 }
 
 .drink-box {
+  border-radius: 50px;
   display : block;
 }
 .drink-box > input{ /* HIDE RADIO */
@@ -176,7 +177,8 @@ margin-top: -24px;
 }
 .drink-box > input:checked + div{ /* (RADIO CHECKED) DIV STYLES */
   border-radius: 50px;
-  border: 2px solid #406ef9;
+  border: 1px solid #406ef9;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 /*waterdrop waves*/
 .clip-svg {
@@ -186,8 +188,8 @@ margin-top: -24px;
 .water-jar {
   height: 400px;
   width: 400px;
-  top: 54%;
-  left: 30%;
+  top: 56%;
+  left: 28.5%;
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -197,7 +199,7 @@ margin-top: -24px;
 
 .water-jar .water-filling {
   position: absolute;
-  left: -8%;
+  left: -3%;
   top: 35px;
   z-index: 3;
   width: 100%;

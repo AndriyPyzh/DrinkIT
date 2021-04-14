@@ -16,7 +16,7 @@
                 {
                     Beverage beverage = Model.Beverages[x + j];
                     <div class="w-auto">
-                        <label class="w-auto drink-box">
+                        <label class="w-auto drink-box shadow-sm">
                             @Html.RadioButtonFor(m => m.Beverage, beverage.Name, new {@checked = true})
                             <div style="height: 115px; width: 216px; font-size: 17px">
                                 <p>@beverage.Name</p>

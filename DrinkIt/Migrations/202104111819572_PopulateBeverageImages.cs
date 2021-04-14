@@ -15,8 +15,8 @@
             Sql("UPDATE Beverages SET Image='milk.png' WHERE Name='Milk';");
             Sql("UPDATE Beverages SET Image='soda.png' WHERE Name='Soda';");
             Sql("UPDATE Beverages SET Image='tea.png' WHERE Name='Tea';");
-            Sql("UPDATE Beverages SET Image='water.png' WHERE Name='Water';");
             Sql("UPDATE Beverages SET Image='wine.png' WHERE Name='Wine';");
+            Sql("UPDATE Beverages SET Image='water.png' WHERE Name='Water';");
         }
 
         public override void Down()
