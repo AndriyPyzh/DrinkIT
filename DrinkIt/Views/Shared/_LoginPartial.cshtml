@@ -5,8 +5,8 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right list-group list-group-horizontal list-unstyled d-flex align-items-center mt-lg-2">
-        <li>
+    <ul class="nav navbar-nav navbar-right list-group list-group-horizontal list-unstyled d-flex align-items-center mt-lg-2" style="font-size: 20px;">
+        <li >
             @Html.ActionLink( User.Identity.GetUserName().Substring(0,User.Identity.GetUserName().IndexOf("@")), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class=""})
         </li>
         <li><a class="btn btn-primary mx-lg-4" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
