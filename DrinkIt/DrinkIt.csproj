@@ -212,7 +212,6 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddDrinkViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
-    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />

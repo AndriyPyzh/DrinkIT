@@ -58,7 +58,7 @@ namespace DrinkIt.Controllers
 
             return new HomeViewModel
             {
-                BlogPerPage = 6,
+                DrinksPerPage = 6,
                 CurrentPage = page,
                 Drinks = drinks,
                 IntakeGoal = intakeGoal,
