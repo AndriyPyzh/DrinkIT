@@ -5,7 +5,13 @@ left:50%;
 transform: translate(-50%, -50%);
 text-align: center;
 }
-
+.wrapper {
+  padding: 30px 50px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  margin: 10px auto;
+  max-width: 600px
+}
 .form h3{
 margin: 15px;
 padding: 0;
@@ -86,6 +92,9 @@ font-size: 14px;
 .input-form{
 text-align: center;
 }
+.no-space{
+  margin-left:10px;
+}
 
 .input-form-button input{
 padding: 10px;
@@ -110,10 +119,25 @@ border-right: none;
 border-bottom: solid black 1px;
 padding: 3px 10px;
 }
-
+.dropdown{
+  width: 100%;
+  margin: 20px 0 20px 0;
+  position: relative;
+  background-color: transparent;
+  color:black;
+  outline-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid black 1px;
+  padding: 3px 10px;
+}
 .input-form input[type="text"]:focus, .input-form input[type="password"]:focus {
 border: 1px solid none;
 
+}
+.custom-switch{
+  text-align: left;
 }
 
 .input-form-button input[type="submit"]
@@ -218,6 +242,9 @@ margin-top: -24px;
   justify-content: center;
   color: #fff;
   font-size: 64px;
+}
+.dropdown{
+  
 }
 .water-jar .water {
   position: absolute;
