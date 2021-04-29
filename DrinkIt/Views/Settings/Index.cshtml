@@ -4,55 +4,54 @@
     ViewBag.Title = "Settings Page";
 }
 <div class="wrapper bg-white mt-sm-5 d-flex justify-content-center">
-    <div style="width: 900px">
+<div style="width: 900px">
 
-        <div class="pb-2 border-bottom ">
-            <h3>Settings</h3>
-        </div>
-        @using (Html.BeginForm("Save", "Settings", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
-            @Html.AntiForgeryToken()
-            <div class="row py-2 input-form  d-flex justify-content-center mt-3">
-
-                <div class=" col-md-4  ">
-
-                    @Html.LabelFor(m => m.Age)
-                    @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+    <div class="pb-2 border-bottom ">
+        <h3 >Settings</h3>
+    </div>
+            @using (Html.BeginForm("Save", "Settings", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row py-2 input-form  d-flex justify-content-center mt-3">
+                    
+                    <div class=" col-md-4  ">
+                    
+                        @Html.LabelFor(m => m.Age)
+                        @Html.TextBoxFor(m => m.Age, new {@class = "form-control"})
+                    </div>
+                    <div class="col-md-4 offset-1">
+                        @Html.LabelFor(m => m.Weight)
+                        @Html.TextBoxFor(m => m.Weight, new {@class = "form-control"})
+                    </div>
                 </div>
-                <div class="col-md-4 offset-1">
-                    @Html.LabelFor(m => m.Weight)
-                    @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
+                
+                
+                <div class="row py-2 input-form  d-flex justify-content-center">
+                    <div class=" col-md-4  ">
+                        @Html.LabelFor(m => m.Goal)
+                        @Html.TextBoxFor(m => m.Goal, new {@class = "form-control"})
+                    </div>
+                    <div class="col-md-4  offset-1  ">
+                        @Html.LabelFor(m => m.Gender)
+                        <div class="py-3">@Html.DropDownListFor(model => model.Gender, new SelectList(new string[] {"male", "female", "mixed"}, Model.Gender), htmlAttributes: new { @class = "form-control" }) </div>
+                        @Html.ValidationMessageFor(m => m.Weight, "", new {@class = "text-danger"}) 
+                    </div>
                 </div>
-            </div>
-
-
-            <div class="row py-2 input-form  d-flex justify-content-center">
-                <div class=" col-md-4  ">
-                    @Html.LabelFor(m => m.Goal)
-                    @Html.TextBoxFor(m => m.Goal, new { @class = "form-control" })
+                
+                <div class="row py-2 input-form  d-flex justify-content-center">
+                    <div class=" col-md-4  ">
+                        @Html.LabelFor(m => m.WakeUpTime)
+                        @Html.TextBoxFor(m => m.WakeUpTime, new {@class = "form-control"})
+                    </div>
+                    <div class="col-md-4  offset-1 ">
+                        @Html.LabelFor(m => m.SleepTime)
+                        @Html.TextBoxFor(m => m.SleepTime, new {@class = "form-control"})
+                    </div>
                 </div>
-                <div class="col-md-4  offset-1  ">
-                    @Html.LabelFor(m => m.Gender)
-                    <div class="py-3">@Html.DropDownListFor(model => model.Gender, new SelectList(new string[] { "male", "female", "mixed" }, Model.Gender), htmlAttributes: new { @class = "form-control" }) </div>
-                </div>
-            </div>
-
-            <div class="row py-2 input-form  d-flex justify-content-center">
-                <div class=" col-md-4  ">
-                    @Html.LabelFor(m => m.WakeUpTime)
-                    @Html.TextBoxFor(m => m.WakeUpTime, new { @class = "form-control" })
-                </div>
-                <div class="col-md-4  offset-1 ">
-                    @Html.LabelFor(m => m.SleepTime)
-                    @Html.TextBoxFor(m => m.SleepTime, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="input-form-button mt-3 col-md-4 offset-lg-4 ">
-                <input type="submit" class="btn-primary buttonAdd" value="Save">
-            </div>
-            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-
-        }
+                <div class="input-form-button mt-3 col-md-4 offset-lg-4 "> 
+                    <input type="submit" class="btn-primary buttonAdd" value="Save">
+                    </div> 
+            }
 
     </div>
 </div>
