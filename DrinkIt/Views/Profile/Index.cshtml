@@ -10,25 +10,25 @@
             <h3 class="mt-3">Personal information</h3>
         </div>
 
-        @using (Html.BeginForm("Profile", "Profile", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+        @using (Html.BeginForm("Profile", "Profile", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
             @Html.LabelFor(m => m.Age)
-            <div class="input-form">
-                @Html.TextBoxFor(m => m.Age, new {@class = "form-control"})
-                @Html.ValidationMessageFor(m => m.Age, "", new {@class = "text-danger"})
+            <div class="form-group">
+                <div class="input-form">
+                    @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                </div>
             </div>
-
+            <div class="validation" asp-validation-summary="ModelOnly"></div>
             @Html.LabelFor(m => m.Weight)
             <div class="input-form">
-                @Html.TextBoxFor(m => m.Weight, new {@class = "form-control"})
-                @Html.ValidationMessageFor(m => m.Weight, "", new {@class = "text-danger"})
+                @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
             </div>
+            <span asp-validation-for="Weight"></span>
 
             @Html.LabelFor(m => m.Goal)
             <div class="input-form">
-                @Html.TextBoxFor(m => m.Goal, new {@class = "form-control"})
-                @Html.ValidationMessageFor(m => m.Weight, "", new {@class = "text-danger"})
+                @Html.TextBoxFor(m => m.Goal, new { @class = "form-control" })
             </div>
 
             <p class="text-center mt-2">Please select your gender:</p>
@@ -43,10 +43,11 @@
                 <input type="radio" class="btn-check" name="Gender" id="option3" value="Other">
                 <label class="btn btn-outline-primary" for="option3">Other</label>
             </div>
-            
+
             <div class="input-form-button mt-2">
                 <input type="submit" class="btn-primary buttonAdd" value="Submit">
             </div>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
         }
     </div>
 </div>

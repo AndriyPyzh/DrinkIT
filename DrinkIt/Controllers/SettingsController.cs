@@ -60,6 +60,21 @@ namespace DrinkIt.Controllers
                 .Single(c => c.Id == userId)
                 .Account;
             Gender gender = _context.Genders.Single(g => g.Name.Equals(model.Gender));
+
+            if (!ModelState.IsValid)
+            {
+                SettingsViewModel settingsView = new SettingsViewModel
+                {
+                    Age = account.Age,
+                    Goal = account.Goal,
+                    Weight = account.Weight,
+                    SleepTime = account.SleepTime,
+                    WakeUpTime = account.WakeUpTime,
+                    Gender = gender.Name
+                };
+                return View("Index", settingsView);
+            }
+            
             account.Age = model.Age;
             account.Goal = model.Goal;
             account.Weight = model.Weight;

@@ -78,26 +78,30 @@ namespace DrinkIt.Models
 
     public class ProfileViewModel
     {
-        [Required]
+        [Range(7,99,ErrorMessage ="Age must be more than 7")]
         [Display(Name = "Age")]
         public int Age { get; set; }
-        [Required]
+
+        
+        [Range(40,200, ErrorMessage ="Weight must be between 40 and 200")]
         [Display(Name = "Weight")]
         public int Weight { get; set; }
+
         [Required]
         [Display(Name = "Gender")]
         public string Gender { get; set; }
-        [Required]
+
+        [Range(500, 5000, ErrorMessage = "Goal must be between 500 and 5000")]
         [Display(Name = "Goal")]
         public int Goal { get; set; }
 
         [Required]
         [Display(Name = "WakeUpTime")]
-        public TimeSpan WakeUpTime = new TimeSpan ( 0, 0, 8, 0 );
+        public TimeSpan WakeUpTime { get; set; }
 
         [Required]
         [Display(Name = "SleepTime")]
-        public TimeSpan SleepTime = new TimeSpan(0, 0, 22, 0);
+        public TimeSpan SleepTime { get; set; }
     }
     public class ResetPasswordViewModel
     {
