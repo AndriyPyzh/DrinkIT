@@ -16,19 +16,19 @@
             @Html.LabelFor(m => m.Age)
             <div class="form-group">
                 <div class="input-form">
-                    @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Age, new { @class = "form-control", type = "number" })
                 </div>
             </div>
             <div class="validation" asp-validation-summary="ModelOnly"></div>
             @Html.LabelFor(m => m.Weight)
             <div class="input-form">
-                @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.Weight, new { @class = "form-control", type = "number"  })
             </div>
             <span asp-validation-for="Weight"></span>
 
             @Html.LabelFor(m => m.Goal)
             <div class="input-form">
-                @Html.TextBoxFor(m => m.Goal, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.Goal, new { @class = "form-control", type = "number" })
             </div>
 
             <p class="text-center mt-2">Please select your gender:</p>
