@@ -166,6 +166,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -257,6 +258,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Beverage\Index.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

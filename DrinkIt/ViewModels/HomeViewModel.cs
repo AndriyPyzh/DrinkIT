@@ -13,6 +13,8 @@ namespace DrinkIt.ViewModels
 
         public int DrinksPerPage { get; set; }
         public int CurrentPage { get; set; }
+        
+        public DateTime Day { get; set; }
 
         public int PageCount()
         {

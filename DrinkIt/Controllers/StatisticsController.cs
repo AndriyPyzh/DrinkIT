@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Web.Mvc;
 using DrinkIt.Models;
 using DrinkIt.ViewModels;
@@ -9,11 +10,11 @@ using Microsoft.AspNet.Identity;
 
 namespace DrinkIt.Controllers
 {
-    public class HomeController : Controller
+    public class StatisticsController : Controller
     {
         private ApplicationDbContext _context;
 
-        public HomeController()
+        public StatisticsController()
         {
             _context = new ApplicationDbContext();
         }
@@ -23,21 +24,19 @@ namespace DrinkIt.Controllers
             _context.Dispose();
         }
 
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(String day, int page = 1)
         {
-            return View(GenerateModel(page));
+            return View(GenerateModel(page, day));
         }
 
-        public ActionResult DeleteDrunkDrink(int page, int id)
+        public HomeViewModel GenerateModel(int page, String day)
         {
-            DrunkDrink drink = _context.DrunkDrinks.SingleOrDefault(x => x.Id == id);
-            _context.DrunkDrinks.Remove(drink);
-            _context.SaveChanges();
-            return RedirectToAction("Index", "Home", new {page});
-        }
 
-        public HomeViewModel GenerateModel(int page)
-        {
+            DateTime searchDay = DateTime.Now;
+            if (day != null)
+            {
+                searchDay = DateTime.ParseExact(day, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            }
             String userId = User.Identity.GetUserId();
 
             Account account = _context
@@ -48,7 +47,7 @@ namespace DrinkIt.Controllers
 
             List<DrunkDrink> drinks = account
                 .DrunkDrinks
-                .Where(d => d.Time.Date == DateTime.Today)
+                .Where(d => d.Time.Date == searchDay.Date)
                 .OrderByDescending(d => d.Time)
                 .ToList();
 
@@ -62,7 +61,8 @@ namespace DrinkIt.Controllers
                 CurrentPage = page,
                 Drinks = drinks,
                 IntakeGoal = intakeGoal,
-                AlreadyDrunk = alreadyDrunk
+                AlreadyDrunk = alreadyDrunk,
+                Day = searchDay
             };
         }
     }

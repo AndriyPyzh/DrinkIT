@@ -1,0 +1,110 @@
+﻿@using DrinkIt.Models
+@model DrinkIt.ViewModels.HomeViewModel
+@{
+    ViewBag.Title = "Statistics Page";
+    Double percent = Math.Floor((Double) Model.AlreadyDrunk * 100 / (Double) Model.IntakeGoal);
+
+}
+<div class="container row">
+    <div class="col text-center">
+        <div class="row" style="padding-bottom: 0.3rem">
+            <div class="col" style="font-size: 25px; margin-bottom: 16px">
+                <span>Select Day:</span>
+                <input id="stats-day" class="form-control d-inline-flex" type="date" value="@Model.Day.Date.ToString("yyyy-MM-dd")" max="@DateTime.Now.Date.ToString("yyyy-MM-dd")" style="font-size: 20px;margin-left: 10px; width:200px"
+                       onChange="window.location.replace('@Url.Action("Index")?day=' + document.getElementById('stats-day').value)">
+            </div>
+        </div>
+        <div class="row" style="height: 75px">
+            <div class="col">
+                <div class="row shadow h-100" style="margin-left: 4rem; margin-right: 4rem; border-radius: 0.8rem;">
+                    <div class="col mt-2" style="font-size: 23px">@Model.IntakeGoal ml</div>
+                    <div class="w-100"></div>
+                    <div class="col mb-2" style="font-size: 16px">Intake goal</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row shadow h-100" style="margin-left: 4rem; margin-right: 4rem; border-radius: 0.8rem;">
+                    <div class="col mt-2" style="font-size: 23px">@Model.AlreadyDrunk ml</div>
+                    <div class="w-100"></div>
+                    <div class="col mb-2" style="font-size: 16px">Drunked</div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 440px">
+            <svg x="0px" y="0px" style="display: none;">
+                <symbol id="wave">
+                    <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"></path>
+                    <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"></path>
+                    <path d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"></path>
+                    <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
+                </symbol>
+            </svg>
+            <div class="water-jar clip-svg" style="height: 460px">
+                <div class="water-filling">
+                    <div class="percentNum" id="count">@percent</div>
+                    <div class="percentB">%</div>
+                </div>
+                <div id="water" class="water">
+                    <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                        <use xlink:href="#wave"></use>
+                    </svg>
+                    <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                        <use xlink:href="#wave"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <svg width="80%" viewbox="0 0 50 42">
+                <defs>
+                    <clipPath id="myClip">
+                        <path class="st0" d="M368.2,270.1c0,101.7-82.4,184.1-184.1,184.1S0,371.7,0,270.1c0-9.9,2.8-27.6,4.3-37
+                    	C18.2,145.2,183.5,0,183.5,0s168.1,146.7,180.9,235.9C365.5,244.5,368.2,261.2,368.2,270.1z"/>
+                    </clipPath>
+                </defs>
+            </svg>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row text-center">
+            <div class="col" style="font-size: 38px">@Model.Day.Date.ToString("dddd, dd MMMM")</div>
+        </div>
+        @if (Model.Drinks.Count == 0)
+        {
+            <div class="text-center text-secondary mt-4" style="font-size: 20px">Time to drink something!</div>
+        }
+        else
+        {
+            foreach (DrunkDrink drink in Model.PaginatedDrinks())
+            {
+                <div style="padding: 0.5rem 4rem;">
+                    <div class="shadow row" style="border-radius: 0.8rem">
+                        <div class="col-1" style="width: 17%">
+                            <div class="p-2 " style="width: 70px;height: 70px">
+                                <img src="../../Content/images/Beverages/@drink.Beverage.Image" alt="done" width="50px" height="50px">
+                            </div>
+                        </div>
+                        <div class="col-1 row pt-1" style="width: 70%">
+                            <div class="col text-right" style="font-size: 23px">@drink.Beverage.Name</div>
+                            <div class="w-100" style="height: 0"></div>
+                            <div class="col pb-2" style="font-size: 18px">@drink.Volume ml</div>
+                        </div>
+                        <div class="col-1 mt-2" style="font-size: 17px; width: 15%">@drink.Time.ToString("HH:mm")</div>
+                    </div>
+                </div>
+            }
+            if (Model.Drinks.Count > 6)
+            {
+                <nav class="mt-3">
+                    <ul class="pagination pagination-lg justify-content-center">
+                        @for (int i = 1; i <= Model.PageCount(); i++)
+                        {
+                            <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")">
+                                <a class="page-link" href="@Url.Action("Index", new {page = i})">@i</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+        }
+    </div>
+</div>
