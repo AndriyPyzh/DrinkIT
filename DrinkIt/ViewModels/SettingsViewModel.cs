@@ -6,10 +6,10 @@ namespace DrinkIt.ViewModels
 {
     public class SettingsViewModel
     {
-        [Range(7, 99, ErrorMessage = "Age must be more than 7")]
+        [Range(7, 99, ErrorMessage = "Age must be more than 7 and less than 99")]
         [Display(Name = "Age")] public int Age { get; set; }
 
-        [Range(40, 200, ErrorMessage = "Weight must be between 40 and 200")]
+        [Range(20, 200, ErrorMessage = "Weight must be between 20 and 200")]
         [Display(Name = "Weight")] public double Weight { get; set; }
 
         [Required(ErrorMessage = "Select your gender")]
@@ -19,11 +19,11 @@ namespace DrinkIt.ViewModels
         [Display(Name = "Goal")] public double Goal { get; set; }
 
         [Required]
-        [DataType(DataType.Date, ErrorMessage = "Wake up time must be in time foramt")]
+        [DataType(DataType.Date, ErrorMessage = "Wake up time must be in time format")]
         [Display(Name = "WakeUpTime")] public TimeSpan WakeUpTime { get; set; }
 
         [Required]
-        [DataType(DataType.Date, ErrorMessage = "Sleep time must be in time foramt")]
+        [DataType(DataType.Date, ErrorMessage = "Sleep time must be in time format")]
         [Display(Name = "SleepTime")] public TimeSpan SleepTime { get; set; }
     }
 }
