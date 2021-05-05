@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using DrinkIt.Models;
+using DrinkIt.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -15,9 +17,10 @@ namespace DrinkIt.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ApplicationDbContext _context;
         public ManageController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -50,9 +53,32 @@ namespace DrinkIt.Controllers
             }
         }
 
+        public SettingsViewModel GenerateModel()
+        {
+            String userId = User.Identity.GetUserId();
+
+            Account account = _context
+                .Users
+                .Include(u => u.Account.Gender)
+                .Single(c => c.Id == userId)
+                .Account;
+
+            Gender gender = _context.Genders.Single(g => g.Name.Equals(account.Gender.Name));
+            return new SettingsViewModel()
+            {
+                Weight = account.Weight,
+                Age = account.Age,
+                SleepTime = account.SleepTime,
+                WakeUpTime = account.WakeUpTime,
+                Goal = account.Goal,
+                Gender = gender.Name
+
+            };
+        }
+
         //
         // GET: /Manage/Index
-        public async Task<ActionResult> Index(ManageMessageId? message)
+        public ActionResult Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
@@ -63,16 +89,7 @@ namespace DrinkIt.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
-            var userId = User.Identity.GetUserId();
-            var model = new IndexViewModel
-            {
-                HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
-            };
-            return View(model);
+            return View(GenerateModel());
         }
 
         //
