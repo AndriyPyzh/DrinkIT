@@ -7,25 +7,28 @@
             <h3 class="mt-3">Sign Up</h3>
         </div>
 
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
             @Html.LabelFor(m => m.Email)
             <div class="input-form">
-                @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             </div>
             @Html.LabelFor(m => m.Password)
             <div class="input-form">
-                @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+
             </div>
             @Html.LabelFor(m => m.ConfirmPassword)
             <div class="input-form">
-                @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control"})
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
             </div>
 
             <div class="input-form-button">
                 <input type="submit" class=" btn-primary buttonAdd" value="Sign Up">
             </div>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
         }
     </div>
 </div>
