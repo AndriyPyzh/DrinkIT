@@ -168,6 +168,8 @@
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
+    <Compile Include="db\IRepository.cs" />
+    <Compile Include="db\Repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

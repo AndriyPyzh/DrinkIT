@@ -5,6 +5,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DrinkIt.db;
 using DrinkIt.Models;
 using DrinkIt.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -13,29 +14,33 @@ namespace DrinkIt.Controllers
 {
     public class BeverageController : Controller
     {
-        private ApplicationDbContext _context;
+        private IRepository _repository;
 
         public BeverageController()
         {
-            _context = new ApplicationDbContext();
+            _repository = new Repository();
         }
-
-        protected override void Dispose(bool disposing)
+        
+        public BeverageController(IRepository repository)
         {
-            _context.Dispose();
+            _repository = repository;
         }
 
         public ActionResult Index()
         {
-            List<Beverage> beverages = _context.Beverages
-                .OrderBy(d => d.Name).ToList();
-            return View(new AddDrinkViewModel {Beverages = beverages});
+            return View(GetBeverages());
+        }
+
+        public AddDrinkViewModel GetBeverages()
+        {
+            List<Beverage> beverages = _repository.GetBeveragesOrderByNameAsc();
+            return new AddDrinkViewModel {Beverages = beverages};
         }
 
         public ActionResult AddDrunkDrink(AddDrinkViewModel model)
         {
             int volume = int.Parse(model.Volume.Replace("ml", ""));
-            Beverage beverage = _context.Beverages.Single(b => b.Name.Equals(model.Beverage));
+            Beverage beverage = _repository.GetBeverageByName(model.Beverage);
             DateTime time = DateTime.Now;
             
             DrunkDrink drink = new DrunkDrink
@@ -46,16 +51,12 @@ namespace DrinkIt.Controllers
             };
             
             String userId = User.Identity.GetUserId();
-            Account account = _context
-                .Users
-                .Include(u => u.Account.DrunkDrinks)
-                .Single(c => c.Id == userId)
-                .Account;
+            Account account = _repository.GetAccountByUser(userId);
             
             account.DrunkDrinks.Add(drink);
             
-            _context.Accounts.AddOrUpdate(account);
-            _context.SaveChanges();
+            _repository.UpdateAccount(account);
+            _repository.SaveChanges();
             
             return RedirectToAction("Index", "Home");
         }
